@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  fastapi_app:
+    build: .
+    image: johan-predicator
+    container_name: fastapi_app_container
+    ports:
+      - "5792:8000"
+    volumes:
+      - .:/app  # Mount the current directory to /app inside the container
+    environment:
+      - NAME=World
+    command: uvicorn mini_project:app --host 0.0.0.0 --port 8000 --reload
