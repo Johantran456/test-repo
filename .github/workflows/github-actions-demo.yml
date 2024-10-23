@@ -9,4 +9,4 @@ jobs:
       - run: docker tag johan-predicator johantran456/johan-predicator
       - run: docker login -u johantran456 -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker push johantran456/johan-predicator      
-      - run: sshpass -p 'Supermotdepasse!42' ssh ubuntu@20.86.55.5 docker login -u johantran456 -p ${{ secrets.DOCKER_PASSWORD }}; docker pull johantran456/johan-predicator; docker run -d -p 5792:8000 johantran456/johan-predicator
+      - run: sshpass -p 'Supermotdepasse!42' ssh ubuntu@20.86.55.5 "docker login -u johantran456 -p ${{ secrets.DOCKER_PASSWORD }}; docker pull johantran456/johan-predicator; docker run -d -p 5792:8000 johantran456/johan-predicator" | echo
